@@ -1,0 +1,24 @@
+{
+  "name": "restaurant-reservation-system",
+  "version": "1.0.0",
+  "description": "This is express app for restaurant-reservation-system, it will manage request mange sessions cookies and store database in Monogd",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/darkNovaV1/RR-backend.git"
+  },
+  "author": "Aman Shakya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/darkNovaV1/RR-backend/issues"
+  },
+  "homepage": "https://github.com/darkNovaV1/RR-backend#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
+    "nodemon": "^2.0.22"
+  }
+}

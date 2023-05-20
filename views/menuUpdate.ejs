@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/menu-updation.css">
+    <title>Menu Update</title>
+</head>
+<body>
+    
+    <header>
+        <h2 class="logo">Steakhouse</h2>
+        <nav class="navigation">
+            <a href="orders.html">Orders</a>
+            <a href="#menu">Current Menu</a>
+            <a href="#menuUpdate">Insert </a>
+        </nav>
+    </header>
+    <section id="menu">
+    <h1>Current Menu </h1>
+    <table border="2">
+        <tr>
+            <th>Name</th>
+            <th>Image</th>
+            <th>Price</th>
+            <th>Rating</th>
+            <th>Edit</th>
+        </tr>
+        <% menuItems.forEach(item=>{ %>
+            <tr>
+                <td><%=item.name%></item.name></td>
+                <td><img src="<%= item.image%>" class="image_food1"></td>
+                <td><%=item.cost%></td>
+                <td><%for(let i=0.0;i<parseFloat(item.rating);i++){%>
+                    <span><img src="./assets/star.png" width="20px"></span>
+               <% }%>
+               <% if(item.cost/1!=0){%>
+                <span><img src="./assets/halfStar.png" width="20px"></span>
+                <%}%>
+            </td>
+                <td><form action="/menuDelete/<%=item._id%>" method="post"> <button type="submit">X</button></form></td>
+
+            </tr>
+        <%})%>
+        
+    </table>
+</section>
+
+    <section id="menuUpdate">
+    <div class="menu-container">
+        <h1>Menu Insertion</h1>
+        <form action="/menuUpdate" method="post">
+            <label for="name">Name: </label>
+            <input type="text" name="name" id="" required><br>
+            <label for="cost">Cost: </label>
+            <input type="number" name="cost" id="" required><br>
+            <label for="rating">Rating: </label>
+            <input type="number" name="rating" id="" required min="0" max="5" step="0.5"><br> <br>
+            <button type="submit">Submit</button>
+            </form>
+    </div>
+</section>
+</body>
+</html>

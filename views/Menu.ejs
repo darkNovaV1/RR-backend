@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <link rel="stylesheet" href="./css/menu.css">
+</head>
+
+<body>
+   
+    <div class="header">
+        <h2 class="logo">Steakhouse</h2>
+        <h1 class="heading">Select Meal</h1>
+    </div>
+   
+    <div class="container">
+        <% foodItems.forEach(food => {%>
+            <div class="wrapper">
+                 <div class="card-img"><img src="<%= food.image%>" alt=""></div>
+                 <div class="card-body">
+                     <h3 class="food-name"><%=food.name%></h3>
+                     <div class="rating"> <%for(let i=1;i<=parseInt(food.rating);i++){%>
+                        <span><img src="./assets/star.png" width="20px"></span>
+                   <% }%>
+                   <% if(food.rating%1!=0){%>
+                    <span><img src="./assets/halfStar.png" width="20px"></span>
+                    <%}%></div>
+                     <span class="food-price"><%= food.cost%></span>
+                     <button class="btn">select</button>
+                 </div>
+             </div>
+         <%})%>
+        </div>
+
+    </div>
+ <div class="footer"><button class="confirmBtn" id="confirm">Confirm</button></div>
+ 
+
+    
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <div class="wrapper1">
+        <span class="icon-close">
+            <ion-icon name="close"></ion-icon>
+        </span>
+        <div class="form-box order">
+        <h2 class="heading">Order</h2>
+        
+        <div class="items-list">
+        </div>
+            <hr>
+            <div class="total">
+                
+                <div class="item-name" name="totalCost">Total</div>
+                <div id="totalCost"class="item-cost">Cost</div>
+             </div>
+            <form action="/payment" method="get">
+                <button type="submit" class="pay-btn">Pay</button>
+            </form>
+        </div>
+    </div>
+    <script src="./js/menu.js"></script>
+
+</body>
+
+</html>

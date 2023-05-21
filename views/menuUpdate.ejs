@@ -32,14 +32,14 @@
                 <td><%=item.name%></item.name></td>
                 <td><img src="<%= item.image%>" class="image_food1"></td>
                 <td><%=item.cost%></td>
-                <td><%for(let i=0.0;i<parseFloat(item.rating);i++){%>
+                <td><%for(let i=1;i<=parseInt(item.rating);i++){%>
                     <span><img src="./assets/star.png" width="20px"></span>
                <% }%>
-               <% if(item.cost/1!=0){%>
+               <% if(item.rating%1!=0){%>
                 <span><img src="./assets/halfStar.png" width="20px"></span>
                 <%}%>
             </td>
-                <td><form action="/menuDelete/<%=item._id%>" method="post"> <button type="submit">X</button></form></td>
+                <td><form action="/menuDelete/<%=item._id%>" method="post"> <button class="close" type="submit"><img  src="assets/close.png" alt="close icon"></button></form></td>
 
             </tr>
         <%})%>
@@ -56,7 +56,7 @@
             <label for="cost">Cost: </label>
             <input type="number" name="cost" id="" required><br>
             <label for="rating">Rating: </label>
-            <input type="number" name="rating" id="" required min="0" max="5" step="0.5"><br> <br>
+            <input type="number" name="rating" id="" required min="1" max="5" step="0.5"><br> <br>
             <button type="submit">Submit</button>
             </form>
     </div>

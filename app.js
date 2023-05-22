@@ -5,12 +5,19 @@ const bodyParser = require("body-parser");
 const ejs = require('ejs');
 const session = require('express-session');
 const MongoDBSession = require('connect-mongodb-session')(session);
+const bcryptjs  = require('bcryptjs');
+const multer = require('multer');
+
+
+const path = require('path');
+const fs = require('fs');
 
 const mongoose = require('mongoose');
 const uri = 'mongodb://127.0.0.1:27017/RestaurantDB';
 const User = require('./models/User');
 const Menu = require('./models/Menu');
 const Order = require('./models/Order');
+
 
 
 
@@ -52,6 +59,43 @@ app.use(session({
     }
 };
 
+// password hashing function
+const securePassword = async(password)=>{
+    try {
+        
+       const passwordHash = bcryptjs.hash(password,10); // 10 salt
+        return passwordHash 
+    } catch (error) {
+        res.status(400).send(error.message);
+    }
+}
+
+// saving file received by users
+
+const storage = multer.diskStorage({
+    destination:function(req,file,cb){
+        cb(null,path.join(__dirname,'public/menuImages'),function(error,success){
+            if(error)throw error
+        })
+    },
+    filename:function(req,file,cb){
+        let date= new Date();
+
+        const name =date.toISOString().slice(0,10)+'-'+file.originalname;
+         cb(null,name,function(error,success){
+            if(error)throw error
+         })
+        
+    }
+});
+
+ 
+const upload = multer({storage:storage})
+
+
+
+
+
 async function main() {
 
     // establishing connection with monogdb 
@@ -87,7 +131,7 @@ async function main() {
         .get((req, res) => {
             
             if (req.session.user) {
-                const redirect = req.session.redirectTo;
+                const redirect = req.session.redirectTo || '/';
                 delete req.session.redirectTo;
                 res.redirect(redirect);
             }
@@ -97,9 +141,13 @@ async function main() {
         })
         .post(async (req, res) => {
             try {
+                
                 const user1 = await User.findOne({ email: req.body.email });
+            
                 if (user1) {
-                    if (user1.password == req.body.password) {
+                    const matched = bcryptjs.compareSync(req.body.password,user1.password);
+                    console.log(matched);
+                    if (matched) {
 
                         req.session.user = user1;
                         const redirectTo = req.session.redirectTo || '/';
@@ -123,19 +171,27 @@ async function main() {
 
     })
     .post(async (req, res) => {
-        
+
+        const spassword = await securePassword(req.body.password)
         const user = new User({
             username: req.body.username,
             email: req.body.email,
-            password: req.body.password,
+            password: spassword,
 
         });
         try {
+            const oldUser = await User.findOne({$or:[{username:req.body.username},{email:req.body.email}]});
+    
+
+            if(!oldUser){
             const docs = await user.save();
             req.session.user = user;
-            const redirect = req.session.redirectTo;
+            const redirect = req.session.redirectTo || '/';
             delete req.session.redirectTo;
-            res.redirect(redirect);
+            res.redirect(redirect);}
+            else{
+                res.send('this username or email already exits try something else');
+            }
         }
         catch (e) {
             console.error(e.message);
@@ -145,17 +201,27 @@ async function main() {
 
     })
 
+
+    app.post('/bill',async(req,res)=>{
+            req.session.bill = req.body.selectFoods;
+            res.json({ message: 'Bill received and processed successfully' });
+    })
+
+
+
+
     app.route('/payment')
         .get( requireAuth ,(req, res) => {
             res.sendFile(__dirname + '/public/payment.html')
         })
         .post(async (req, res) => {
             let order = new Order({
+                user: req.session.user.username,
                 date: req.session.booking.date,
                 time: req.session.booking.time,
                 partySize: req.session.booking.partySize,
                 specialRequest: req.session.booking.specialRequest,
-                user: req.session.user.username,
+                bill:req.session.bill,
             });
 
             try {
@@ -174,12 +240,12 @@ async function main() {
             res.render('menuUpdate', { menuItems: foods })
             //res.sendFile(__dirname+'/public/menuUpdate.html')
         })
-        .post(async (req, res) => {
+        .post( upload.single('image') ,async (req, res) => {
             const menu = new Menu({
                 name: req.body.name,
                 cost: parseInt(req.body.cost),
                 rating: req.body.rating,
-                image: './assets/burgerr.jpg',
+                image: req.file.filename,
             });
 
             try {
@@ -193,7 +259,18 @@ async function main() {
 
     app.post('/menuDelete/:item', async (req, res) => {
         try {
-            await Menu.findOneAndDelete({ _id: req.params.item });
+            const item = await Menu.findOne({ _id: req.params.item });
+            // Delete a image file
+            fs.unlink(__dirname+'/public/menuImages/'+item.image, (err) => {
+                if (err) {
+                    console.error(err);
+                return;
+                }
+
+                console.log('File deleted successfully');
+             });
+             // Delete item from db
+            await Menu.findOneAndDelete({_id:req.params.item});
             res.redirect('/menuUpdate');
         }
         catch (e) {
@@ -212,6 +289,12 @@ async function main() {
         res.redirect('/');
     })
 
+    app.get('/test', (req,res)=>{
+        
+        
+        res.send(today )
+        
+    })
 
 
     // listen for incoming connections on port 30000

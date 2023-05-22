@@ -23,7 +23,8 @@ const orderSchema = mongoose.Schema({
     time:String,
     partySize:Number,
     user:String,
-    specialRequest:String
+    specialRequest:String,
+    bill:JSON,
 
 });
 

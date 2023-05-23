@@ -136,7 +136,9 @@ async function main() {
                 res.redirect(redirect);
             }
             else {
-                res.sendFile(__dirname + '/public/login.html');
+                // Get the error message from the query parameter
+                const errorMessage = req.query.error; 
+                res.render('login', { error: errorMessage });
             }
         })
         .post(async (req, res) => {
@@ -146,7 +148,7 @@ async function main() {
             
                 if (user1) {
                     const matched = bcryptjs.compareSync(req.body.password,user1.password);
-                    console.log(matched);
+            
                     if (matched) {
 
                         req.session.user = user1;
@@ -155,11 +157,14 @@ async function main() {
                         res.redirect(redirectTo);
                     }
                     else {
-                        res.send('wrong password');
+                        const errorMessage = 'Incorrect Password';
+                        res.redirect('/login?error=' + encodeURIComponent(errorMessage));
                     }
                 }
                 else {
-                    res.send('User do not exits');
+
+                    const errorMessage = 'User do not exits';
+                    res.redirect('/Login?error=' + encodeURIComponent(errorMessage));
                 }
             } catch (e) {
                 res.send(e.message);
@@ -167,7 +172,9 @@ async function main() {
         })
 
     app.route('/signUp').get((req ,res)=>{
-           res.sendFile(__dirname+'/public/signup.html')
+        // Get the error message from the query parameter
+        const errorMessage = req.query.error; 
+        res.render('signup', { error: errorMessage });
 
     })
     .post(async (req, res) => {
@@ -190,7 +197,8 @@ async function main() {
             delete req.session.redirectTo;
             res.redirect(redirect);}
             else{
-                res.send('this username or email already exits try something else');
+                const errorMessage = 'Username or Email already exists';
+                res.redirect('/signUp?error=' + encodeURIComponent(errorMessage));
             }
         }
         catch (e) {
@@ -235,7 +243,7 @@ async function main() {
 
 
     app.route('/menuUpdate')
-        .get(async (req, res) => {
+        .get( requireAuth, async (req, res) => {
             const foods = await Menu.find();
             res.render('menuUpdate', { menuItems: foods })
             //res.sendFile(__dirname+'/public/menuUpdate.html')
@@ -279,12 +287,12 @@ async function main() {
     })
 
 
-    app.route('/order').get(async (req, res) => {
+    app.route('/order').get(requireAuth, async (req, res) => {
         const orderlist = await Order.find();
         res.render('orders', { orders: orderlist });
     })
 
-    app.get('/logOut', (req, res) => {
+    app.get('/logout', (req, res) => {
         req.session.destroy();
         res.redirect('/');
     })

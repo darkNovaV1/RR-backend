@@ -16,24 +16,30 @@
     <header>
         <h2 class="logo">Steakhouse</h2>
         <nav class="navigation">
-            <a href="/order">Orders</a>
+            <a href="home.html">Home</a>
             <a href="/menuUpdate">Menu Update</a>
+            <a href="/logout">Logout</a>
+
+
         </nav>
+
     </header>
     <h1>Orders</h1>
     <table border="2">
         <tr>
+            <th>Date</th>
             <th>Time</th>
             <th>User Name</th>
             <th>Guest</th>
-            <th>Status</th>
+        
         </tr>
         <%orders.forEach(order=>{%>
         <tr>
+            <td><%=order.date%></td>
             <td><%=order.time%></td>
             <td><%=order.user%></td>
             <td><%=order.partySize%></td>
-            <td>Booked</td>
+            
         </tr>
     <%})%>
     </table>

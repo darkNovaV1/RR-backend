@@ -1,13 +1,22 @@
-const bcryptjs  = require('bcryptjs');
+const bcryptjs = require('bcryptjs');
 
-const securePassword = async(password)=>{
-    try {
-        
-       const passwordHash = bcryptjs.hash(password,10); // 10 salt
-        return passwordHash 
-    } catch (error) {
-        res.status(400).send(error.message);
-    }
-}
+// Function to securely hash a password
+const securePassword = async (password) => {
+  try {
+    const passwordHash = await bcryptjs.hash(password, 10); // 10 rounds of salt
+    return passwordHash;
+  } catch (error) {
+    throw new Error(error.message);
+  }
+};
 
-module.exports = securePassword;
+// Function to compare a string with a hashed password
+const matchPassword = async (string, password) => {
+  try {
+    return await bcryptjs.compare(string, password);
+  } catch (error) {
+    throw new Error(error.message);
+  }
+};
+
+module.exports = { securePassword, matchPassword };

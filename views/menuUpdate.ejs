@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
+    <link rel="manifest" href="../favicon/site.webmanifest">
     
-    <link rel="stylesheet" href="./css/menu-updation.css">
+    <link rel="stylesheet" href="../css/menu-updation.css">
     <title>Menu Update</title>
 </head>
 <body>
@@ -41,13 +41,13 @@
                 <td><img src="/menuImages/<%= item.image%>" class="image_food1"></td>
                 <td><%=item.cost%></td>
                 <td><%for(let i=1;i<=parseInt(item.rating);i++){%>
-                    <span><img src="./assets/star.png" width="20px"></span>
+                    <span><img src="../assets/star.png" width="20px"></span>
                <% }%>
                <% if(item.rating%1!=0){%>
-                <span><img src="./assets/halfStar.png" width="20px"></span>
+                <span><img src="../assets/halfStar.png" width="20px"></span>
                 <%}%>
             </td>
-                <td><form action="/menuDelete/<%=item._id%>" method="post"> <button class="close" type="submit"><img  src="assets/close.png" alt="close icon"></button></form></td>
+                <td><form action="/menu/menuDelete/<%=item._id%>" method="post"> <button class="close" type="submit"><img  src="../assets/close.png" alt="close icon"></button></form></td>
 
             </tr>
         <%})%>
@@ -58,7 +58,7 @@
     <section id="menuUpdate">
     <div class="form-container">
         <h1>Menu Insertion</h1>
-        <form action="/menuUpdate" method="post" enctype="multipart/form-data">
+        <form action="/menu/menuUpdate" method="post" enctype="multipart/form-data">
             <label for="name">NAME</label><br>
             <input type="text" name="name" id="" required><br>
             <label for="cost">COST</label><br>

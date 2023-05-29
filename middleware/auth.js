@@ -1,10 +1,12 @@
 const requireAuth = (req, res, next) => {
     req.session.redirectTo = req.originalUrl;
+    
     if (!req.session.user) {
-        res.redirect('/login');
+      res.redirect('/login');
     } else {
-        next();
+      next();
     }
-};
-
-module.exports = requireAuth;
+  };
+  
+  module.exports = requireAuth;
+  

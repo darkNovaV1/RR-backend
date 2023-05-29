@@ -2,14 +2,13 @@ const express = require("express");
 const app = express();
 
 const bodyParser = require("body-parser");
-const ejs = require('ejs');
+
 const session = require('express-session');
 const MongoDBSession = require('connect-mongodb-session')(session);
-const bcryptjs  = require('bcryptjs');
-const multer = require('multer');
 
 
-const path = require('path');
+
+
 const fs = require('fs');
 
 const mongoose = require('mongoose');
@@ -50,47 +49,13 @@ app.use(session({
 }));
 
  // Authentication middleware
- const requireAuth = (req, res, next) => {
-    req.session.redirectTo = req.originalUrl;
-    if (!req.session.user) {
-        res.redirect('/login');
-    } else {
-        next();
-    }
-};
+ const requireAuth = require('./middleware/auth');
 
 // password hashing function
-const securePassword = async(password)=>{
-    try {
-        
-       const passwordHash = bcryptjs.hash(password,10); // 10 salt
-        return passwordHash 
-    } catch (error) {
-        res.status(400).send(error.message);
-    }
-}
+const securePassword = require('./utils/passwordUtils');
 
-// saving file received by users
-
-const storage = multer.diskStorage({
-    destination:function(req,file,cb){
-        cb(null,path.join(__dirname,'public/menuImages'),function(error,success){
-            if(error)throw error
-        })
-    },
-    filename:function(req,file,cb){
-        let date= new Date();
-
-        const name =date.toISOString().slice(0,10)+'-'+file.originalname;
-         cb(null,name,function(error,success){
-            if(error)throw error
-         })
-        
-    }
-});
-
- 
-const upload = multer({storage:storage})
+// save uploaded file middleware 
+const upload = require('./middleware/fileUpload');
 
 
 
@@ -102,6 +67,7 @@ async function main() {
     await mongoose.connect(uri).then(console.log('connected to DB '));
 
     // ----------------> set up route <--------------------
+ 
     app.get('/', (req, res) => {
         
         res.sendFile(__dirname + '/public/home.html');

@@ -1,3 +1,4 @@
 menuImages
 public
 node_modules
+.env

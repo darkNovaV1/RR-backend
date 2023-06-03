@@ -1,11 +1,11 @@
 const express = require("express");
 const app = express();
+require('dotenv').config()
 const bodyParser = require("body-parser");
 const session = require("express-session");
 const MongoDBSession = require("connect-mongodb-session")(session);
 const mongoose = require("mongoose");
-
-const uri = "mongodb://127.0.0.1:27017/RestaurantDB";
+const cors = require('cors');
 
 // --------------> Set up Middleware <---------------------
 
@@ -21,18 +21,23 @@ app.set("view engine", "ejs");
 
 // Set up session
 const store = new MongoDBSession({
-  uri: uri,
+  uri: process.env.URI,
   collection: "Session",
 });
 
 app.use(
   session({
-    secret: "key that will sign cookie",
+    secret:process.env.SECRET, //this will use to sign cookie
     resave: false, // create new session for every request even if it's the same user
     saveUninitialized: false, // don't save the session if it hasn't been modified
     store: store, // store the session in MongoDB
   })
 );
+
+// setup CORS
+app.use(cors({
+  origin:"http://localhost:3000"
+}))
 
 // --------------> Set up Routes <---------------------
 
@@ -54,17 +59,24 @@ routes.forEach((route) => {
   app.use(route.path, route.router);
 });
 
+////////////////////testing ///////////////////////
+const Menu = require("./models/Menu");
+app.get('/api', async(req,res)=>{
+  const foods = await Menu.find();
+  res.json(foods);
+})
+
 // --------------> Start the Server <---------------------
 
 async function startServer() {
   try {
     // Establish connection with MongoDB
-    await mongoose.connect(uri);
+    await mongoose.connect(process.env.URI);
     console.log("Connected to MongoDB");
 
     // Start listening for incoming connections on port 3000
-    app.listen(3000, () => {
-      console.log("Server running on port 3000");
+    app.listen(process.env.PORT, () => {
+      console.log(`Server running on port ${process.env.PORT}`);
     });
   } catch (error) {
     console.error("Failed to connect to MongoDB:", error);

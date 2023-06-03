@@ -4,6 +4,7 @@
   "description": "This is express app for restaurant-reservation-system, it will manage request mange sessions cookies and store database in Monogd",
   "main": "app.js",
   "scripts": {
+    "start":"node app.js",
     "dev": "nodemon app",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

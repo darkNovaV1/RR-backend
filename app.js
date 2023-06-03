@@ -36,7 +36,7 @@ app.use(
 
 // setup CORS
 app.use(cors({
-  origin:"http://localhost:3000"
+  origin:'*'
 }))
 
 // --------------> Set up Routes <---------------------
@@ -52,6 +52,7 @@ const routes = [
   { path: "/payment", router: require("./routes/payment") },
   { path: "/order", router: require("./routes/order") },
   { path: "/menu", router: require("./routes/menu") },
+  { path: "/menuPage", router: require("./routes/menuPage")},
 ];
 
 // Register the routes with their respective paths
@@ -65,6 +66,8 @@ app.get('/api', async(req,res)=>{
   const foods = await Menu.find();
   res.json(foods);
 })
+
+
 
 // --------------> Start the Server <---------------------
 

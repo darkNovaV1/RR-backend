@@ -1,4 +1,3 @@
-menuImages
-public
+public/*.git
 node_modules
 .env

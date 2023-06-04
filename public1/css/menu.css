@@ -1,0 +1,352 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+  }
+  
+  body {
+
+    background-color: black;
+    color: #fff;
+    overflow: y scroll;
+  }
+
+  /* <----------------------------------------Header-------------------------------> */
+  
+header{
+  background-color: black;
+  position:sticky;
+  top:0;
+  left: 0;
+  max-width: 100%;
+  padding: 20px 100px;
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 99;
+}
+
+.logo{
+  font-weight: 100;
+  font-family: 'Great Vibes', cursive;
+  color:#0dbb50;
+
+  font-size:2.5rem;
+  user-select: none;
+  
+  
+
+}
+
+.navigation a{
+  position: relative;
+  font-size: 1.1em;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 40px;
+  
+}
+
+.navigation a::after{
+ content: " ";
+ position: absolute;
+ left:0px;
+ bottom:-5px;
+  width: 100%;
+ height: 3px; 
+ background-color:#0dbb50;
+ border-radius: 5px;
+ transform-origin: right;
+ transform: scaleX(0);
+  transition: transform .5s;
+}
+
+.navigation a:hover::after{
+  transform-origin: left;
+  transform: scaleX(1);
+  
+}
+/* <-----------------------------------------Menu Title----------------------------> */
+
+.title{
+  position: sticky;
+    top:90px;
+    left: 100px;
+    z-index: 5;
+    background-color: black;
+}
+.title h1{
+    
+
+    font-size: 3rem;
+    margin-left: 100px;
+}
+  
+/* <-----------------------------------------Menu Container----------------------------> */
+
+  .container {
+    
+    margin: 2%  100px 2% 100px;  
+    display: grid;
+    gap:35px;
+    grid-template-columns: repeat(auto-fill, minmax(14rem, 200px));
+    
+  }
+  
+  .container .wrapper {
+    box-shadow: 0 0 30px rgba(88, 84, 84, 0.952);
+    background-color:rgba(255, 255, 255,.4);
+    
+    border: 2px solid #fff;
+    border-radius: 5%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .container .wrapper.selected{
+    border-color: #0dbb50;
+  }
+  
+  .container .wrapper .card-img {
+    flex: 1;
+
+
+
+    overflow: hidden;
+  }
+  
+  .container .wrapper .card-img img {
+    width:100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    transition: 0.2s ease;
+  }
+
+  .container .wrapper .card-img img:hover{
+    transform: scale(1.04);
+  }
+  
+  .container .wrapper .card-body {
+    border-radius: 5%;
+    background-color:rgba(255, 255, 255,.7);
+    color:black;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    text-align: left;
+  }
+  
+.container .wrapper .card-body .rating{
+    margin-bottom: 5px;
+}
+
+
+.container .wrapper .card-body .food-name{
+    margin-top: 5px;
+
+    font-size: 1.5rem;
+    font-weight: 100;
+}
+.container .wrapper .card-body .food-price{
+    
+    color:black;
+    font-size: 1.2rem;
+    
+}
+
+.container .wrapper .card-body .food-price::before{
+    content: 'Rs ';
+}
+
+.container .wrapper .card-body .btn{
+    float: right;
+    margin-right: 10px;
+    width: 5rem;
+    height: 2rem;
+    border-radius:8px ;
+    background-color: orangered;
+    color:#fff;
+    cursor: pointer;
+    transition: 0.2s all;
+}
+
+.container .wrapper .card-body .btn:hover{
+    background-color: orange;
+    transform: scale(1.04);
+}
+
+/*<-----------------------------------confirm button-----------------------> */
+
+.footer .confirmBtn{
+    position:fixed;
+    bottom :80px;
+    left:100px;
+    width: 130px;
+    height:50px;
+    background:#0dbb50;
+    border: 2px solid white;
+    outline:none;
+    border-radius: 6px;
+    cursor:pointer;
+    font-size: 1.1rem;
+    color:#fff;
+    font-weight: 500;
+    transition: .5s;
+}
+.footer .confirmBtn:hover{
+    background-color: #0eec63;
+    color: black; 
+    transform: scale(1.04);
+}
+
+
+
+/* ---------------------------------------Bill PopUp------------------------------------- */
+
+  
+  .wrapper1{
+    position:fixed;
+    left:30%;
+    top:20%;
+    width: 400px;
+    height: 440px;
+    background: rgba(22 22 22 0.75 );
+    border: 2px solid rgba(255, 255, 255, .5);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgba(111, 128, 112, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+     overflow: hidden; 
+    transition: transform .5s ease,height .2s ease ;
+    transform: scale(0);
+    z-index: 99;
+}
+
+.wrapper1.active-popup{
+    transform: scale(1); 
+}
+
+.wrapper1.active{
+    height: 520px;
+}
+
+.wrapper1 .form-box{
+    width: 100%;
+    padding: 40px;
+    
+}
+
+.wrapper1 .icon-close{
+    position: absolute;
+    top:0px ;
+    right: 0px;
+    width: 45px;
+    height: 45px;
+    background:#0dbb50;
+    color: #fff;
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+    font-size: 2rem;
+    border-bottom-left-radius: 20px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.wrapper1 .icon-close:hover{
+  transform: scale(1.04);
+}
+
+.wrapper1 .heading{
+    position:absolute;
+    top:10px;
+    left:140px;
+}
+
+.form-box h2{
+    font-size: 2rem;
+    color:#fff;
+    text-align: center;
+}
+.items-list{
+    margin: 20px 0 10px 0;
+    color: #fff;
+    text-align: center;
+    min-height: 200px;
+    max-height: 250px;
+    overflow-y: auto;
+    }
+.item{
+    margin: 5px 0;
+}
+.item-name{
+    display:inline-block;
+    text-align: left;
+    width:70%;
+}
+
+.item-cost{
+    display: inline-block;
+    width: 25%;
+
+}
+.item-cost::before{
+
+    content: 'Rs ';
+
+}
+
+
+.total{
+    margin: 15px 0;
+    color: #fff;
+    text-align: center;
+}
+
+
+.pay-btn{
+    width: 100%;
+    height: 45px;
+    background:#0dbb50;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #fff;
+    font-weight: 500;
+}
+
+.pay-btn:hover{
+  transform: scale(1.04);
+}
+
+/* <------------------------------------ Media query------------------------------------> */
+
+    @media (max-width: 600px) {
+        .container {
+        
+          display: grid;
+          gap: 10px;
+          grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+          overflow: y scroll;
+        }
+      }
+      
+      @media (max-width: 750px) {
+        .container {
+        
+          display: grid;
+          gap: 10px;
+          grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+          overflow: y scroll;
+        }
+      }

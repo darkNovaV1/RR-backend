@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seat Booking</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="stylesheet" href="./css/booking-style.css">
+</head>
+<body>
+    <header>
+        <h2 class="logo">Steakhouse</h2>
+        <nav class="navigation">
+            <a href="home.html#home">Home</a>
+            <a href="home.html#aboutUs">About</a>
+            <a href="home.html#contactUs">Contacts</a>
+            
+
+        </nav>
+    </header>
+    
+    <section id="booking">
+        
+     <div class="book-content">
+        <h2 class="heading1">Let's</h2>
+            <h1 class="heading2">Book a Table</h1>
+            <form action="/booking" method="post">
+                <div class="input_fields">
+                    <div class="date_text">
+                        <label class="date_label">Date</label><br>
+                        <input type="date" id="datepicker" name="date" class="inp_date" required>
+                    </div>
+                    <div class="time_text">
+                        <label class="time_label" for="timepicker">Time</label><br>
+                        <input type="time" id="timepicker" name="time" class="inp_time" required>
+                    </div>
+                    <div class="guest_list">
+                        <label class="guest_label">Guest</label><br>
+                        <select id="number" name="partySize" class="inp_guest" required>
+                            <option value="1">1 Guest</option>
+                            <option value="2">2 Guests</option>
+                            <option value="3">3 Guests</option>
+                            <option value="4">4 Guests</option>
+                            <option value="5">5 Guests</option>
+                            <option value="6">6 Guests</option>
+                        </select><br>
+                    </div>
+                </div>
+                <div><input name="specialRequest" class="srequest" type="text" placeholder="Special Request"></div>
+                <button class="button1">Book Now</button>
+            </form>
+        <script src="./js/booking-script.js"></script>
+        
+    </div>
+    <div class="book-image">
+        <img src="./assets/2265769.jpg" alt="">
+    </div>
+    </section>
+</body>
+</html>

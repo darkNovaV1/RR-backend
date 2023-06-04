@@ -10,7 +10,7 @@ const cors = require('cors');
 // --------------> Set up Middleware <---------------------
 
 // Serve static files (e.g., js and css) from the "public" folder
-app.use(express.static("public"));
+app.use(express.static("public1"));
 
 // Parse URL-encoded form data and JSON data
 app.use(bodyParser.urlencoded({ extended: true }));

@@ -1,0 +1,466 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Poppins', sans-serif;
+}
+
+html{
+    scroll-snap-type: y mandatory;
+}
+
+section{
+    padding-top: 90px;
+    min-height: 100vh;
+    scroll-snap-stop: always;
+    scroll-snap-align: start;
+    
+}
+
+
+/*---------------------------home section----------------------------*/
+
+header{
+    background-color: transparent;
+    position:sticky;
+    top:0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+}
+.menu-bar{
+    display: none;
+}
+
+
+.logo{
+    font-weight: 100;
+    font-family: 'Great Vibes', cursive;
+    color:#0dbb50;
+
+    font-size:2.5rem;
+    user-select: none;
+    
+    
+
+}
+
+.navigation a{
+    position: relative;
+    font-size: 1.1em;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+    
+}
+
+.navigation a::after{
+   content: " ";
+   position: absolute;
+   left:0px;
+   bottom:-5px;
+    width: 100%;
+   height: 3px; 
+   background-color:#0dbb50;
+   border-radius: 5px;
+   transform-origin: right;
+   transform: scaleX(0);
+    transition: transform .5s;
+}
+
+.navigation a:hover::after{
+    transform-origin: left;
+    transform: scaleX(1);
+    
+}
+.navigation .btnLogin-popup{
+    width: 130px;
+    height:50px;
+    background: transparent;
+   border: 2px solid #0dbb50 ;
+    outline:none;
+    border-radius: 6px;
+    cursor:pointer;
+    font-size: 1.1rem;
+    color: #fff;
+    font-weight: 500;
+    margin-left: 40px;
+    transition: .5s;
+}
+.navigation .btnLogin-popup:hover{
+    background-color: #0dbb50;
+    color: #162938; 
+}
+
+#home{
+    position: relative;
+    display: grid;
+    grid-template-columns:repeat(auto-fill , minmax(500px,1fr));
+    min-height: 100vh;
+    background-color: black;
+    
+
+}
+
+.slogan{
+    padding-top: 80px;
+    padding-left: 100px;
+    color: #fff;
+    font-size: 53px;
+    font-weight: bolder;
+    width: 70%;
+    
+    
+}
+
+.food-img{
+    padding-top: 30px;
+    width: 75%;
+    
+}
+
+
+#home .bookBtn{
+    
+    width: 130px;
+    height:50px;
+    background:black;
+    border: 2px solid #0dbb50;
+    outline:none;
+    border-radius: 6px;
+    cursor:pointer;
+    font-size: 1.1rem;
+    color:#fff;
+    font-weight: 500;
+    margin-top: 20px;
+    margin-left: 100px;
+   
+    
+
+    transition: .5s;
+}
+#home .bookBtn:hover{
+    background-color: #0dbb50;
+    color: black; 
+}
+
+
+
+
+/*--------------------------- about US section---------------------------*/
+
+#aboutUs{
+    background-color: rgb(22 22 22);
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(500px,1fr));
+    
+
+}
+.aboutUs-image{
+    margin-left: 70px;
+}
+
+.aboutUs-image img{
+    margin: 100px 0px ;
+    width: 100%;
+}
+.aboutUs-content{
+    color: #fff;
+    font-size: 1.3rem;
+    padding-right: 16%;
+    padding-left: 5%;
+}
+.head1{
+    font-size: 3.2rem;
+    margin-bottom: 35px;
+    
+}
+
+
+
+/* -------------------------------contact US section -------------------------------*/
+#contactUs{
+    min-height: 100vh;
+    background-color: black;
+    color: #fff;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(450px,1fr));
+    
+
+}
+.contact-content{
+    margin-left: 100px;
+    
+    
+    display:grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px,1fr));
+}
+
+.cnct0, .cnct3{
+    grid-column: 1/-1;
+
+}
+
+
+
+.head2{
+    font-size: 3.2rem;
+    
+}
+.contact-content h3{
+    font-size: 1.7rem;
+}
+
+.contact-content p{
+    font-size: 1.3rem;
+    
+
+}
+
+.contact-content a{
+    color: #0dbb50;
+    text-decoration: none;
+   
+}
+
+.contact-content i{
+    padding-top: 10px;
+    margin-right: 20px;
+    transition: all 0.3s linear;
+}
+.contact-content a:hover i{
+    color:rgb(27, 223, 20);
+    transform: scale(1.2);
+}
+
+.contact-image{
+padding-top: 10px;
+    
+}
+.contact-image img{
+ max-width: 68%;   
+}
+
+.footer{
+    padding: 20px 0px;
+    background-color: rgb(56, 58, 56);
+    grid-column: 1/-1;
+    text-align: center;
+}
+
+/*----------------------------Responsiveness------------------------------*/
+
+@media only screen and (max-width: 1320px){
+    header{
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+}
+@media only screen and (max-width: 1100px){
+    header{
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+    
+    #home .slogan{
+        
+        padding-top: 80px;
+        padding-left: 70px;
+    }
+    #home .home-image{
+        width: 100%;
+        height: 120%;
+        margin-top: 70px;
+        margin-left: 70px;
+    }
+    #contactUs .chef{
+        height: 85%;
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 1000px){
+    header{
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+    #home .slogan{
+        
+        padding-top: 80px;
+        padding-left: 70px;
+    }
+    #home .home-image{
+        width: 70%;
+        height: 80%;
+        margin-top: 70px;
+        margin-left: 200px;
+    }
+    .aboutUs-image{
+        display: none;
+    }
+    .chef{
+       height: 85%;
+       width: 100%;
+       
+    }
+}
+@media only screen and (max-width: 970px){
+    .chef{
+        height: 85%;
+        width: 100%;
+        
+     }
+}
+@media only screen and (max-width: 915px){
+    #contactUs .chef{
+        display: none;
+    }
+}
+@media only screen and (max-width: 900px){
+    #contactUs .chef{
+        display: none;
+    }
+}
+@media only screen and (max-width: 850px){
+
+    .logo{
+        position: absolute;
+        top: 30px;
+        left: 50px;
+
+    }
+    .menu-bar{
+        display: block;
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        
+        cursor: pointer;
+       
+        width: 60px;
+        height: 60px;
+        
+        
+    }
+    .navigation{
+        height: 0;
+        position: absolute;
+        top: 80px;
+        justify-items: right;
+        right: 0;
+        width: 100vw;
+        background: black;
+        transition: 0.5s;
+        overflow: hidden;
+    }
+    .navigation.active{
+        height: 450px;
+    }
+    .navigation #a1{
+        display: block;
+        width: fit-content;
+        margin: 50px auto 0 auto;
+        text-align: center;
+        transition: 0.5s;
+        opacity: 0;
+    }
+    .navigation.active #a1{
+        opacity: 1;
+    }
+    .navigation #a1{
+        margin-bottom: 12px;
+        padding: 10px 10px 10px 10px;
+    }
+    #home .slogan{
+        
+        padding-top: 80px;
+        padding-left: 70px;
+    }
+    .bookBtn{
+        margin-left: 60px;
+    }
+    #home .home-image{
+        width: 70%;
+        height: 80%;
+        margin-left: 170px;
+    }
+    #contactUs .chef{
+        display: none;
+    }
+}
+@media only screen and (max-width: 650px){
+    #home .slogan{
+        
+        padding-top: 80px;
+        padding-left: 70px;
+    }
+    #home .bookBtn{
+        justify-content: center;
+    }
+    #home .home-image{
+        width: 70%;
+        height: 80%;
+        margin-left: 130px;
+    }
+    
+}
+@media only screen and (max-width: 615px){
+    #contactUs .cnct0, .cnct1, .cnct2, .cnct3{
+        padding-bottom: 20px;
+    }
+}
+@media only screen and (max-width: 600px){
+    #home .slogan{
+        
+        padding-top: 80px;
+        padding-left: 70px;
+    }
+    #home .bookBtn{
+        justify-content: center;
+    }
+    #home .home-image{
+        width: 80%;
+        height: 90%;
+        margin-left: 118px;
+    }
+}
+
+@media only screen and (max-width: 500px){
+    #home .slogan{
+       
+        padding-top: 80px;
+        padding-left: 70px;
+    }
+    #home .bookBtn{
+        justify-content: center;
+    }
+    #home .home-image{
+        width: 80%;
+        height: 90%;
+        margin-left: 65px;
+    }
+}
+@media only screen and (max-width: 450px){
+    #home .slogan{
+        
+        padding-top: 80px;
+        padding-left: 70px;
+    }
+    #home .bookBtn{
+        justify-content: center;
+    }
+    #home .home-image{
+        width: 80%;
+        height: 90%;
+        margin-left: 60px;
+    }
+    
+}

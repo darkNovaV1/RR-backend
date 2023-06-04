@@ -1,0 +1,15 @@
+body{
+    background-color: rgb(22,22,22);
+}
+.thanks{
+    justify-content: center
+}
+.img_t{
+    justify-content: center;
+    margin-left: 500px;
+    margin-top: 100px;
+}
+.title1{
+    color: white;
+    text-align: center;
+}

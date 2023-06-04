@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="stylesheet" href="./css/menu.css">
+</head>
+
+<body>
+    <header class="header">
+        <h2 class="logo">Steakhouse</h2>
+        <nav class="navigation">
+            <a href="home.html#home">Home</a>
+            <a href="home.html#aboutUs">About</a>
+            <a href="home.html#contactUs">Contacts</a>
+
+            
+        </nav>
+    </header>
+    <div class="title"><h1>Select Meal</h1></div>
+   
+    <div class="container">
+        <div class="wrapper">
+            <div class="card-img"><img src="./assets/food-img.png" alt=""></div>
+            <div class="card-body">
+                <h3 class="food-name">Food1</h3>
+                <div class="rating">⭐⭐⭐⭐⭐</div>
+                <span class="food-price">43</span>
+                <button class="btn">select</button>
+            </div>
+
+        </div>
+        <div class="wrapper">
+            <div class="card-img"><img src="./assets/burgerr.jpg" alt=""></div>
+            <div class="card-body">
+                <h3 class="food-name">Food1</h3>
+                <div class="rating">⭐⭐⭐⭐⭐</div>
+                <span class="food-price">93</span>
+                <button class="btn">select</button>
+            </div>
+
+        </div>
+        <div class="wrapper ">
+            <div class="card-img"><img src="./assets/fried-rice.jpg" alt=""></div>
+            <div class="card-body">
+                <h3 class="food-name">Food2</h3>
+                <div class="rating">⭐⭐⭐⭐</div>
+                <span class="food-price">12</span>
+                <button class="btn">select</button>
+            </div>
+
+        </div>
+        <div class="wrapper">
+            <div class="card-img"><img src="./assets/pasta2.jpg" alt=""></div>
+            <div class="card-body">
+                <h3 class="food-name">Food3</h3>
+                <div class="rating">⭐⭐⭐</div>
+                <span class="food-price">100</span>
+                <button class="btn">select</button>
+            </div>
+
+        </div>
+        <div class="wrapper">
+            <div class="card-img"><img src="./assets/fries.jpg" alt=""></div>
+            <div class="card-body">
+                <h3 class="food-name">Food4</h3>
+                <div class="rating">⭐⭐⭐⭐⭐</div>
+                <span class="food-price">23</span>
+                <button class="btn">select</button>
+            </div>
+
+        </div>
+        
+
+        </div>
+
+    </div>
+ <div class="footer"><button class="confirmBtn" id="confirm">Confirm</button></div>
+ 
+
+    
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <div class="wrapper1">
+        <span class="icon-close">
+            <ion-icon name="close"></ion-icon>
+        </span>
+        <div class="form-box order">
+        <h2 class="heading">Order</h2>
+        
+        <div class="items-list">
+        </div>
+            <hr>
+            <div class="total">
+                
+                <div class="item-name" name="totalCost">Total</div>
+                <div id="totalCost"class="item-cost">Cost</div>
+             </div>
+            <form action="/payment" method="get">
+                <button type="submit" class="pay-btn">Pay</button>
+            </form>
+        </div>
+    </div>
+    <script src="./js/jquery.js"></script>
+    <script src="./js/menu.js"></script>
+    
+
+</body>
+
+</html>

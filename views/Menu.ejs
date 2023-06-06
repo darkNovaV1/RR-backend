@@ -33,7 +33,7 @@
     <div class="container">
         <% foodItems.forEach(food => {%>
             <div class="wrapper">
-                 <div class="card-img"><img src="/menuImages/<%= food.image %>" alt=""></div>
+                 <div class="card-img"><img src="<%= food.image %>" alt=""></div>
                  <div class="card-body">
                      <h3 class="food-name"><%=food.name%></h3>
                      <div class="rating"> <%for(let i=1;i<=parseInt(food.rating);i++){%>

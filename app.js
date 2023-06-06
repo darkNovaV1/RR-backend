@@ -6,7 +6,7 @@ const session = require("express-session");
 const MongoDBSession = require("connect-mongodb-session")(session);
 const mongoose = require("mongoose");
 const cors = require('cors');
-
+const fileUpload = require('express-fileupload');
 // --------------> Set up Middleware <---------------------
 
 // Serve static files (e.g., js and css) from the "public" folder
@@ -34,9 +34,14 @@ app.use(
   })
 );
 
-// setup CORS
+// set up CORS
 app.use(cors({
   origin:'*'
+}))
+
+//set up fileUpload
+app.use(fileUpload({
+  useTempFiles:true,
 }))
 
 // --------------> Set up Routes <---------------------

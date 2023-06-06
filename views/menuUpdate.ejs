@@ -38,7 +38,7 @@
         <% menuItems.forEach(item=>{ %>
             <tr>
                 <td><%=item.name%></item.name></td>
-                <td><img src="/menuImages/<%= item.image%>" class="image_food1"></td>
+                <td><img src="<%= item.thumbnail%>" class="image_food1"></td>
                 <td><%=item.cost%></td>
                 <td><%for(let i=1;i<=parseInt(item.rating);i++){%>
                     <span><img src="../assets/star.png" width="20px"></span>

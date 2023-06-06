@@ -1,23 +1,30 @@
 // <----------------------------- Menu ---------------------------------->
 async function getMenuData(){
-    const response = await fetch("http://localhost:3000/api");
+    const response = await fetch("https://steakhousereservationsystem.onrender.com/api");
     const jsonData = await response.json();
     return jsonData
 }
 
 async function renderMenu(){
     const menu = await getMenuData();
-    const menuList = menu.map(food=>`<div class="wrapper">
-    <div class="card-img"><img src="/menuImages/${food.image}" alt=""></div>
+    const menuList = menu.map(food=>{
+        let star=""
+        for(let i=0;i<parseInt(food.rating);i++){
+            star+=`<span><img src="./assets/star.png" width="20px"> </span>`
+        }
+        return (`<div class="wrapper">
+    <div class="card-img"><img src="${food.image}" alt=""></div>
     <div class="card-body">
         <h3 class="food-name">${food.name}</h3>
         <div class="rating">
-        <span><img src="./assets/star.png" width="20px"></span>
+        ${star}
+        ${food.rating %1!=0?`<span><img src="./assets/halfStar.png" width="20px"></span>`:''}
+        
        </div>
         <span class="food-price">${food.cost}</span>
         <button class="btn">select</button>
     </div>
-</div>`);
+</div>`)});
 
 menuList.forEach(item=>$('.container').append(item));
 

@@ -1,10 +1,15 @@
 const mongoose = require('mongoose');
 
 const menuSchema = mongoose.Schema({
-    name:String,
+    name:{
+        type:String,
+        unique:true,
+    },
     cost:Number,
     rating:Number,
     image:String,
+    thumbnail:String,
+    imageID:String,
 })
 
 const menuModel = mongoose.model("Menu",menuSchema);

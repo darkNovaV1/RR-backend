@@ -33,7 +33,7 @@ router.post("/", async (req, res) => {
   }
 
   // Send the order as a response
-  res.send(order);
+  res.sendFile(path.join(__dirname, "../public/thankyou.html"));
 });
 
 module.exports = router;

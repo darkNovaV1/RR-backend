@@ -1,6 +1,6 @@
 // <----------------------------- Menu ---------------------------------->
 async function getMenuData(){
-    const response = await fetch("https://steakhousereservationsystem.onrender.com/api");
+    const response = await fetch('https://plain-outerwear-dove.cyclic.app/api');
     const jsonData = await response.json();
     return jsonData
 }
@@ -26,7 +26,7 @@ async function renderMenu(){
     </div>
 </div>`)});
 
-menuList.forEach(item=>$('.container').append(item));
+// menuList.forEach(item=>document.querySelector('.container').append(item));
 
 
 // selecting all food card buttons

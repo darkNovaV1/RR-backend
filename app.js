@@ -58,6 +58,7 @@ const routes = [
   { path: "/order", router: require("./routes/order") },
   { path: "/menu", router: require("./routes/menu") },
   { path: "/menuPage", router: require("./routes/menuPage")},
+  { path: "/orderhistory",router:require("./routes/orderhistory")},
 ];
 
 // Register the routes with their respective paths
@@ -70,6 +71,10 @@ const Menu = require("./models/Menu");
 app.get('/api', async(req,res)=>{
   const foods = await Menu.find();
   res.json(foods);
+})
+
+app.get('/h',(req,res)=>{
+  res.send(req.session.bill);
 })
 
 

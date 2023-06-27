@@ -14,10 +14,13 @@
 <body>
     <header>
         <h2 class="logo">Steakhouse</h2>
+        <div class="responsive">
+            <img src="./assets/menu-icon.png" class="menu-bar">
+        </div>
         <nav class="navigation">
-            <a href="home.html#home">Home</a>
-            <a href="home.html#aboutUs">About</a>
-            <a href="home.html#contactUs">Contacts</a>
+            <a href="home.html#home" class="active" id="a1">Home</a>
+            <a href="home.html#aboutUs" id="a1">About</a>
+            <a href="home.html#contactUs" id="a1">Contacts</a>
             
 
         </nav>
@@ -25,7 +28,7 @@
     
     <div class="container">
         <div class="image-container">
-            <img src="assets/lgn (3).png" alt="">
+            <img src="assets/lgn (3).png" alt="" class="signup-image">
         </div>
         <div class="form-container">
             <form action="/signUp" method="post">
@@ -44,5 +47,7 @@
         
         </div>
     </div>
+
+    <script src="./js/signup.js"></script>
 </body>
 </html>

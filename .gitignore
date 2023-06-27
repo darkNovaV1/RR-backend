@@ -1,4 +1,4 @@
 public/*.git
 node_modules
 .env
-tmp
+

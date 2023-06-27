@@ -72,6 +72,9 @@ header{
   transform: scaleX(1);
   
 }
+.menu-bar{
+  display: none;
+}
 /* <-----------------------------------------Menu Title----------------------------> */
 
 .title{
@@ -79,7 +82,7 @@ header{
     top:90px;
     left: 100px;
     z-index: 5;
-    background-color: black;
+    
 }
 .title h1{
     
@@ -339,6 +342,12 @@ header{
           grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
           overflow: y scroll;
         }
+        .wrapper1{
+          position: absolute;
+          top: 148px;
+          left: 140px;
+          right: 0;
+        }
       }
       
       @media (max-width: 750px) {
@@ -348,5 +357,57 @@ header{
           gap: 10px;
           grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
           overflow: y scroll;
+        }
+      }
+
+      @media only screen and (max-width: 850px) {
+        .logo{
+          position: absolute;
+          top: 30px;
+          left: 50px;
+  
+        }
+        .menu-bar{
+            display: block;
+            position: absolute;
+            top: 15px;
+            right: 30px;
+            left: 600px;
+            cursor: pointer;
+          
+            width: 60px;
+            height: 60px;   
+        }
+        .navigation{
+            height: 0;
+            position: absolute;
+            top: 80px;
+            justify-items: right;
+            right: 0;
+            width: 100vw;
+            background: black;
+            transition: 0.5s;
+            overflow: hidden;
+        }
+        .navigation.active{
+            height: 450px;
+        }
+        .navigation #a1{
+            display: block;
+            width: fit-content;
+            margin: 50px auto 0 auto;
+            text-align: center;
+            transition: 0.5s;
+            opacity: 0;
+        }
+        .navigation.active #a1{
+            opacity: 1;
+        }
+        .navigation #a1{
+            margin-bottom: 12px;
+            padding: 10px 10px 10px 10px;
+        }
+        .container{
+          margin-top: 80px;
         }
       }

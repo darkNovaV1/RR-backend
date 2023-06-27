@@ -71,6 +71,10 @@ header {
 
 }
 
+.menu-bar{
+    display: none;
+}
+
 .container {
     padding: 0 3.125rem;
     margin-top: 3%;
@@ -162,4 +166,90 @@ header {
 .form-container a:hover {
     font-weight: 900;
     color: #0df767;
+}
+
+
+/*-------------------Responsiveness------------------*/
+@media only screen and (max-width: 850px) {
+    .logo{
+      position: absolute;
+      top: 30px;
+      left: 50px;
+
+    }
+    .menu-bar{
+        display: block;
+        position: absolute;
+        top: 28px;
+        right: 30px;
+        
+        cursor: pointer;
+      
+        width: 60px;
+        height: 60px;   
+    }
+    .navigation{
+        height: 0;
+        position: absolute;
+        top: 73px;
+        justify-items: right;
+        right: 0;
+        width: 100vw;
+        background: black;
+        transition: 0.5s;
+        overflow: hidden;
+    }
+    .navigation.active{
+        height: 450px;
+    }
+    .navigation #a1{
+        display: block;
+        width: fit-content;
+        margin: 50px auto 0 auto;
+        text-align: center;
+        transition: 0.5s;
+        opacity: 0;
+    }
+    .navigation.active #a1{
+        opacity: 1;
+    }
+    .navigation #a1{
+        margin-bottom: 12px;
+        padding: 10px 10px 10px 10px;
+    }
+    .image-container{
+        margin-top: 20px;
+        margin-left: 60px;
+    }
+    .container{
+        margin-top: 80px;
+    }
+    .signup-image{
+        height: 60%;
+        width: 70%;
+    }
+}
+
+@media only screen and (max-width: 1000px){
+    .signup-image{
+        height: 80%;
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 480px){
+    .menu-bar{
+        position: absolute;
+        top: 28px;
+        right: 30px;
+        left: 400px;
+    }
+    .signup-image{
+        height: 60%;
+        width: 70%;
+    }
+}
+
+@media only screen and (max-width: 850px){
+   
 }

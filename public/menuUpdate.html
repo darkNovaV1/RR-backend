@@ -15,46 +15,51 @@
     
     <header class="header">
         <h2 class="logo">Steakhouse</h2>
+        <div class="responsive">
+            <img src="./assets/menu-icon.png" class="menu-bar">
+        </div>
         <nav class="navigation">
-            <a href="#home">Home</a>
-            <a href="#aboutUs">About</a>
-            <a href="#contactUs">Contacts</a>
+            <a href="#home" class="active" id="a1">Home</a>
+            <a href="#aboutUs" id="a1">About</a>
+            <a href="#contactUs" id="a1">Contacts</a>
         </nav>
     </header>
-    <section id="menu">
-    <h1>Current Menu </h1>
-    <table border="2">
-        <tr>
-            <th>Name</th>
-            <th>Image</th>
-            <th>Price</th>
-            <th>Rating</th>
-        </tr>
-        <tr>
-            <td>Burger</td>
-            <td><img src="./assets/burgerr.jpg" class="image_food1"></td>
-            <td>120</td>
-            <td>4.5</td>
-        </tr>
-    </table>
-</section>
+    <div class="container">
+        <section id="menu">
+        <h1>Current Menu </h1>
+        <table border="2">
+            <tr>
+                <th>Name</th>
+                <th>Image</th>
+                <th>Price</th>
+                <th>Rating</th>
+            </tr>
+            <tr>
+                <td>Burger</td>
+                <td><img src="./assets/burgerr.jpg" class="image_food1"></td>
+                <td>120</td>
+                <td>4.5</td>
+            </tr>
+        </table>
+    </section>
 
-<section id="menuUpdate">
-    <div class="form-container">
-        <h1>Menu Insertion</h1>
-        <form action="/menuUpdate" method="post" enctype="multipart/form-data">
-            <label for="name">NAME</label><br>
-            <input type="text" name="name" id="" required><br>
-            <label for="cost">COST</label><br>
-            <input type="number" name="cost" id="" required><br>
-            <label for="rating">RATING</label><br>
-            <input type="number" name="rating" id="" required min="1" max="5" step="0.5"><br>
-            <label for="image">IMAGE</label><br>
-            <input type="file" name="image" id="" required><br>
-            <button type="submit">Submit</button>
-            </form>
+    <section id="menuUpdate">
+        <div class="form-container">
+            <h1>Menu Insertion</h1>
+            <form action="/menuUpdate" method="post" enctype="multipart/form-data">
+                <label for="name">NAME</label><br>
+                <input type="text" name="name" id="" required><br>
+                <label for="cost">COST</label><br>
+                <input type="number" name="cost" id="" required><br>
+                <label for="rating">RATING</label><br>
+                <input type="number" name="rating" id="" required min="1" max="5" step="0.5"><br>
+                <label for="image">IMAGE</label><br>
+                <input type="file" name="image" id="" required><br>
+                <button type="submit">Submit</button>
+                </form>
+        </div>
+    </section>
     </div>
-</section>
-
+<script src="./js/menu-updation.js"></script>
 </body>
 </html>

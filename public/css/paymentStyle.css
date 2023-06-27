@@ -39,6 +39,10 @@ header{
 
 }
 
+.menu-bar{
+    display: none;
+}
+
 .navigation a{
     position: relative;
     font-size: 1.1em;
@@ -135,7 +139,7 @@ header{
 }
 
 .container form .submit-btn{
-    width: 30%;
+    width: 50%;
     background:linear-gradient(45deg, rgb(15, 19, 233), rgb(22, 162, 218));
     margin-top: 20px;
     padding: 10px;
@@ -249,4 +253,134 @@ header{
 .container .card-container .back .box img{
     margin-top: 30px;
     height: 30px;
+}
+
+
+/*-------------------------Responsiveness-------------------------*/
+@media only screen and (max-width: 1130px){
+    .container{
+        min-width: 280px;
+    }
+    span{
+        max-height: 380px;
+        overflow: auto;
+    }
+    .inputBox{
+        margin-bottom: 12px;
+        width: 100%;
+    }
+    .submit-btn{
+        width: 100%;
+        overflow: auto;
+    }
+}
+
+@media only screen and (max-width: 900px){
+    .container form .submit-btn{
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 850px){
+    .container{
+        margin-top: 80px;
+    }
+    .container form .submit-btn{
+        width: 50%;
+    }
+        .logo{
+            position: absolute;
+            top: 30px;
+            left: 50px;
+      
+          }
+          .menu-bar{
+              display: block;
+              position: absolute;
+              top: 28px;
+              right: 30px;
+              
+              cursor: pointer;
+            
+              width: 60px;
+              height: 60px;   
+          }
+          .navigation{
+              height: 0;
+              position: absolute;
+              top: 73px;
+              justify-items: right;
+              right: 0;
+              width: 100vw;
+              background: black;
+              transition: 0.5s;
+              overflow: hidden;
+          }
+          .navigation.active{
+              height: 450px;
+          }
+          .navigation #a1{
+              display: block;
+              width: fit-content;
+              margin: 50px auto 0 auto;
+              text-align: center;
+              transition: 0.5s;
+              opacity: 0;
+          }
+          .navigation.active #a1{
+              opacity: 1;
+          }
+          .navigation #a1{
+              margin-bottom: 12px;
+              padding: 10px 10px 10px 10px;
+          }
+          #booking{
+            margin-top: 98px;
+          }
+          
+    }
+
+@media only screen and (max-width: 750px){
+    .container form .submit-btn{
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 525px){
+    .container form .submit-btn{
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 510px){
+    .container form .submit-btn{
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 470px){
+    .container form .submit-btn{
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width: 460px){
+    .container form .submit-btn{
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width: 450px){
+    .container form .submit-btn{
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width: 900px){
+    .card-container{
+        display: none;
+    }
+    .container{
+        margin-left: 90px;
+    }
 }

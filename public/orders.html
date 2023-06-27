@@ -14,27 +14,33 @@
 <body>
     <header class="header">
         <h2 class="logo">Steakhouse</h2>
+        <div class="responsive">
+            <img src="./assets/menu-icon.png" class="menu-bar">
+        </div>
         <nav class="navigation">
-            <a href="#home">Home</a>
-            <a href="#aboutUs">About</a>
-            <a href="#contactUs">Contacts</a>
+            <a href="#home" class="active" id="a1">Home</a>
+            <a href="#aboutUs" id="a1">About</a>
+            <a href="#contactUs" id="a1">Contacts</a>
 
         </nav>
     </header>
-    <h1>Orders</h1>
-    <table border="2">
-        <tr>
-            <th>Time</th>
-            <th>User Name</th>
-            <th>Guest</th>
-            <th>Status</th>
-        </tr>
-        <tr>
-            <td>7:30</td>
-            <td>Nazifa</td>
-            <td>3</td>
-            <td>Booked</td>
-        </tr>
-    </table>
+    <div class="container">
+        <h1>Orders</h1>
+        <table border="2">
+            <tr>
+                <th>Time</th>
+                <th>User Name</th>
+                <th>Guest</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td>7:30</td>
+                <td>Nazifa</td>
+                <td>3</td>
+                <td>Booked</td>
+            </tr>
+        </table>
+    </div>
+    <script src="./js/orders.js"></script>
 </body>
 </html>

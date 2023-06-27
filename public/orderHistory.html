@@ -10,8 +10,8 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
     <link rel="manifest" href="favicon/site.webmanifest">
 
-    <link rel="stylesheet" href="css/orders.css">
-    <title>Order</title>
+    <link rel="stylesheet" href="css/orderHistory.css">
+    <title>Order History</title>
 </head>
 
 <body>
@@ -30,10 +30,9 @@
         </form>
     </header>
     <div class="container">
-        <h1 class="heading">Order </h1>
+        <h1 class="heading">Order History</h1>
 
         <div class="order-list">
-            <%orders.forEach(order=>{%>
                 <div class="card">
                 <div class="card-inner">
                 <div class="card-front">
@@ -43,11 +42,12 @@
                     </div>
                     <div class="card-body">
                         <ul>
-                            <li>User :<%=order.user%></li>
-                            <li>Date :<%=order.date%></li>
-                            <li>Time :<%=order.time%></li>
-                            <li>Party size :<%=order.partySize%></li>
-                            <li>Special req : <%=order.specialRequest%></li>
+                            <li>Date :</li>
+                            <li>Time :</li>
+                            <li>Party size :</li>
+                            <li>Special req : </li>
+
+
                         </ul>
                     </div>
                     
@@ -57,15 +57,14 @@
                     <hr>
                     <div class="card-body">
                         <ul>
-                            <li>Item 1</li>
-                          <li>Item 2</li>
-                          <li>Item 3</li>  
-                            
+                            <li>item1</li>
+                            <li>item2</li>
+                            <li>item3</li>
                         </ul>
                     </div>
                     <hr>
                     <div class="card-footer">
-                        <div class="cost">Rs </div>
+                        <div class="cost">50rs</div>
                         <div class="status">
                             <img src="assets/check.png" width="30px" alt="complete">
                             <img src="assets/close.png" width="25px" alt="cancel">
@@ -74,7 +73,6 @@
                   </div>
                 </div>
             </div>
-            <%})%>
         </div>
     </div>
 </body>

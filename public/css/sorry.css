@@ -14,3 +14,71 @@ body{
     color: white;
     text-align: center;
 }
+
+
+/*-------------------------------Responsiveness-------------------------------*/
+@media only screen and (max-width: 1115px){
+    .img_s{
+        margin-left: 445px;
+    }
+}
+@media only screen and (max-width: 1075px){
+    .img_s{
+        margin-left: 430px;
+    }
+}
+@media only screen and (max-width: 1025px){
+    .img_s{
+        margin-left: 395px;
+    }
+}
+@media only screen and (max-width: 980px){
+    .img_s{
+        margin-left: 370px;
+    }
+}
+@media only screen and (max-width: 930px){
+    .img_s{
+        margin-left: 330px;
+    }
+}
+@media only screen and (max-width: 857px){
+    .img_s{
+        margin-left: 300px;
+    }
+}
+@media only screen and (max-width: 775px){
+    .img_s{
+        margin-left: 280px;
+    }
+}
+@media only screen and (max-width: 730px){
+    .img_s{
+        margin-left: 240px;
+    }
+}
+@media only screen and (max-width: 630px){
+    .img_s{
+        margin-left: 200px;
+    }
+}
+@media only screen and (max-width: 565px){
+    .img_s{
+        margin-left: 170px;
+    }
+}
+@media only screen and (max-width: 500px){
+    .img_s{
+        margin-left: 140px;
+    }
+}
+@media only screen and (max-width: 453px){
+    .img_s{
+        margin-left: 100px;
+    }
+}
+@media only screen and (max-width: 380px){
+    .img_s{
+        margin-left: 70px;
+    }
+}

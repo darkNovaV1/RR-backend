@@ -34,6 +34,10 @@ header {
 
 }
 
+.menu-bar{
+    display: none;
+}
+
 .navigation a {
     position: relative;
     font-size: 1.1em;
@@ -187,4 +191,100 @@ th {
 .form-container a:hover {
     font-weight: 900;
     color: #0df767;
+}
+
+
+/*----------------------------Responsiveness----------------------------*/
+@media only screen and (max-width: 1035px){
+    table, th, td{
+        width: 800px;
+    }
+}
+@media only screen and (max-width: 935px){
+    table, th, td{
+        width: 700px;
+    }
+}
+@media only screen and (max-width: 850px){
+    .logo{
+        position: absolute;
+        top: 18px;
+        left: 50px;
+  
+      }
+      .menu-bar{
+          display: block;
+          position: absolute;
+          top: 53px;
+          right: 30px;
+          
+          cursor: pointer;
+        
+          width: 60px;
+          height: 60px;   
+      }
+      .navigation{
+          height: 0;
+          position: absolute;
+          top: 93px;
+          justify-items: right;
+          right: 0;
+          width: 100vw;
+          background: black;
+          transition: 0.5s;
+          overflow: hidden;
+      }
+      .navigation.active{
+          height: 450px;
+      }
+      .navigation #a1{
+          display: block;
+          width: fit-content;
+          margin: 50px auto 0 auto;
+          text-align: center;
+          transition: 0.5s;
+          opacity: 0;
+      }
+      .navigation.active #a1{
+          opacity: 1;
+      }
+      .navigation #a1{
+          margin-bottom: 12px;
+          padding: 10px 10px 10px 10px;
+      }    
+      .container{
+        margin-top: 140px;
+      }
+}
+@media only screen and (max-width: 840px){
+    table, th, td{
+        width: 600px;
+    }
+    .form-container input{
+        width: 40%;
+    }
+}
+@media only screen and (max-width: 740px){
+    table, th, td{
+        width: 500px;
+    }
+    .form-container input{
+        width: 40%;
+    }
+}
+@media only screen and (max-width: 640px){
+    table, th, td{
+        width: 400px;
+    }
+    .form-container input{
+        width: 40%;
+    }
+}
+@media only screen and (max-width: 540px){
+    table, th, td{
+        width: 320px;
+    }
+    .form-container input{
+        width: 40%;
+    }
 }

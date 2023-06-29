@@ -42,6 +42,7 @@ app.use(cors({
 //set up fileUpload
 app.use(fileUpload({
   useTempFiles:true,
+  tempFileDir: "/tmp",
 }))
 
 // --------------> Set up Routes <---------------------

@@ -1,6 +1,6 @@
 // <----------------------------- Menu ---------------------------------->
 async function getMenuData(){
-    const response = await fetch('https://plain-outerwear-dove.cyclic.app/api');
+    const response = await fetch('https://steakhouse.cyclic.app/api');
     const jsonData = await response.json();
     return jsonData
 }

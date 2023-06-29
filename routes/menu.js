@@ -61,17 +61,18 @@ router
       } catch (error) {
         console.error(error);
       }
-      try {
-        // remove the temparay file
-        fs.unlink(file.tempFilePath, (err) => {
-          if (error) {
-            console.log(error);
+      // try {
+      //   // remove the temparay file
+      // const file = req.files.image;
+      // fs.unlink(file.tempFilePath, (err) => {
+      //     if (error) {
+      //       console.log(error);
       
-          }
-        })
-      } catch (e) {
-        console.error(e);
-      }
+      //     }
+      //   })
+      // } catch (e) {
+      //   console.error(e);
+      // }
     })
 
   );

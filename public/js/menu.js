@@ -1,32 +1,32 @@
 // <----------------------------- Menu ---------------------------------->
-async function getMenuData(){
-    const response = await fetch('https://steakhouse.cyclic.app/api');
-    const jsonData = await response.json();
-    return jsonData
-}
+// async function getMenuData(){
+//     const response = await fetch('https://steakhouse.cyclic.app/api');
+//     const jsonData = await response.json();
+//     return jsonData
+// }
 
-async function renderMenu(){
-    const menu = await getMenuData();
-    const menuList = menu.map(food=>{
-        let star=""
-        for(let i=0;i<parseInt(food.rating);i++){
-            star+=`<span><img src="./assets/star.png" width="20px"> </span>`
-        }
-        return (`<div class="wrapper">
-    <div class="card-img"><img src="${food.image}" alt=""></div>
-    <div class="card-body">
-        <h3 class="food-name">${food.name}</h3>
-        <div class="rating">
-        ${star}
-        ${food.rating %1!=0?`<span><img src="./assets/halfStar.png" width="20px"></span>`:''}
+// async function renderMenu(){
+//     const menu = await getMenuData();
+//     const menuList = menu.map(food=>{
+//         let star=""
+//         for(let i=0;i<parseInt(food.rating);i++){
+//             star+=`<span><img src="./assets/star.png" width="20px"> </span>`
+//         }
+//         return (`<div class="wrapper">
+//     <div class="card-img"><img src="${food.image}" alt=""></div>
+//     <div class="card-body">
+//         <h3 class="food-name">${food.name}</h3>
+//         <div class="rating">
+//         ${star}
+//         ${food.rating %1!=0?`<span><img src="./assets/halfStar.png" width="20px"></span>`:''}
         
-       </div>
-        <span class="food-price">${food.cost}</span>
-        <button class="btn">select</button>
-    </div>
-</div>`)});
+//        </div>
+//         <span class="food-price">${food.cost}</span>
+//         <button class="btn">select</button>
+//     </div>
+// </div>`)});
 
-// menuList.forEach(item=>document.querySelector('.container').append(item));
+// // menuList.forEach(item=>document.querySelector('.container').append(item));
 
 
 // selecting all food card buttons
@@ -53,9 +53,9 @@ selectbtns.forEach(btn => {
 })
 
 
-}
+// }
 
-renderMenu();
+// renderMenu();
 
 
 
@@ -136,15 +136,18 @@ function generateBill() {
 
   // Add event listener to the pay button
   const payButton = document.querySelector('.pay-btn');
+  
 
   payButton.addEventListener('click', () => {
     // Send the bill information to the server
+    
     fetch('/bill', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ selectFoods })
+    //   body: JSON.stringify({ selectFoods}),
+      body:JSON.stringify({selectFoods,totalCostValue})
     })
       .then(response => response.json())
       .then(data => {

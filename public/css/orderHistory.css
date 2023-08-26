@@ -89,7 +89,7 @@ header{
   /* -------------------card------------------ */
   .card{
     background-color: transparent;
-    width: 200px;
+    width: 220px;
     min-height: 200px;
     
     perspective: 1000px; /* Remove this if you don't want the 3D effect */
@@ -172,3 +172,32 @@ header{
         margin-left: 100px;
         margin-top: 20px;
     }
+
+    /* ordered items */
+.items-list{
+  margin: 20px 0 10px 0;
+  color: #fff;
+  text-align: center;
+  min-height: 200px;
+  max-height: 250px;
+  overflow-y: auto;
+  }
+.item{
+  margin: 5px 0;
+}
+.item-name{
+  display:inline-block;
+  text-align: left;
+  width:70%;
+}
+
+.item-cost{
+  display: inline-block;
+  width: 25%;
+
+}
+.item-cost::before{
+
+  content: 'Rs ';
+
+}

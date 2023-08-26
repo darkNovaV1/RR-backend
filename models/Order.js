@@ -25,6 +25,8 @@ const orderSchema = mongoose.Schema({
     user:String,
     specialRequest:String,
     bill:JSON,
+    total:String,
+    orderedAt:String,
 
 });
 

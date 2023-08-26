@@ -15,6 +15,7 @@ router.get("/", requireAuth, (req, res) => {
 // Route: /
 // POST request to process the payment and create a new order
 router.post("/", async (req, res) => {
+  const date = new Date().toJSON().slice(0,18);
   // Create a new order object with the provided data
   const order = new Order({
     user: req.session.user.username,
@@ -23,15 +24,25 @@ router.post("/", async (req, res) => {
     partySize: req.session.booking.partySize,
     specialRequest: req.session.booking.specialRequest,
     bill: req.session.bill,
+    total:req.session.total,
+    orderedAt:date,
+
   });
+
 
   try {
     // Save the order to the database
     await order.save();
+    
+
   } catch (error) {
     console.error(error);
   }
-
+  //delete the order session data
+  delete req.session.bill;
+  delete req.session.total;
+  delete req.session.specialRequest;
+  
   // Send the order as a response
   res.sendFile(path.join(__dirname, "../public/thankyou.html"));
 });

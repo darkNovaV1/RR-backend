@@ -33,13 +33,13 @@
         <h1 class="heading">Order History</h1>
 
         <div class="order-list">
-            <%orders.forEach(order=>{%>
+            <%orders.forEach((order,index)=>{%>
                 <div class="card">
                 <div class="card-inner">
                 <div class="card-front">
                     <div class="card-header">
-                        <h3>Order#1</h3>
-                        <h5>time and date</h5>
+                        <h3>Order #<%= index%></h3>
+                        <h5><%=order.orderedAt%></h5>
                     </div>
                     <div class="card-body">
                         <ul>
@@ -57,16 +57,25 @@
                     <h3>food reservation</h3>
                     <hr>
                     <div class="card-body">
-                        <ul>
-                          <li>Item 1</li>
-                          <li>Item 2</li>
-                          <li>Item 3</li>  
+                        
+                
                             
-                        </ul>
+                            <% if(order.bill){order.bill.forEach(i=>{%>
+                                <div class="item">
+                                    <div class="item-name"><%=i.name%></div>
+                                    <div class="item-cost"><%=i.cost%></div>
+                                </div>
+                                
+                                <%})}%>  
+                        
+                        
                     </div>
                     <hr>
                     <div class="card-footer">
-                        <div class="cost">Rs</div>
+                        
+                        <div class="cost">Rs <%if(order.total){%>
+                             <%=order.total%>
+                            <%}%></div>
                         <div class="status">
                             <img src="assets/check.png" width="30px" alt="complete">
                             <img src="assets/close.png" width="25px" alt="cancel">
